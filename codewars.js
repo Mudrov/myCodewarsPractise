@@ -130,4 +130,36 @@ if (result <= 18.5) {
 }
 console.log(dmi(80,1.8));
 
-//
+//Инициалы из строки
+let NameSurname = 'Johnny Silverhand'
+function initials (str) {
+    let result = '';
+    const arr = str.split(' ');
+    let name = arr[0];
+    let surname = arr[1];
+    result = name[0]+'.'+ surname[0];
+    return result.toUpperCase();
+}
+console.log(initials(NameSurname));
+
+//Заменить все гласные в строке
+let scam = 'This website is for losers LOL!';
+function change(str) {
+   let result = str.replace(/[aeiouy]/gi, '');
+   return result;
+}
+console.log(change(scam));
+
+//Возведение в квадрат кажой цифры, сложение их как строк, возвращение результата как числа
+function wtfIsTHAT (number) { 
+    let result = '';
+    let sqr = 0;
+    const str = (number+'');
+    const arr = str.split('');
+    for (let i = 0; i < arr.length; i++) {
+        sqr = arr[i]*arr[i];
+        result += sqr;
+    }
+    return +result;
+}
+console.log(wtfIsTHAT(9119));
