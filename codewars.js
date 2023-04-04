@@ -150,7 +150,7 @@ function change(str) {
 }
 console.log(change(scam));
 
-//Возведение в квадрат кажой цифры, сложение их как строк, возвращение результата как числа
+//Возведение в квадрат каждой цифры, сложение их как строк, возвращение результата как числа
 function wtfIsTHAT (number) { 
     let result = '';
     let sqr = 0;
@@ -163,3 +163,70 @@ function wtfIsTHAT (number) {
     return +result;
 }
 console.log(wtfIsTHAT(9119));
+
+//Расчет статуса клуба игроков в крикет
+let memberStats = [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]];
+function statUS (stats) {
+    result = [];
+    for (i = 0; i < stats.length; i++){
+        if(stats[i][0] >= 55 && stats[i][1] > 7 && stats[i][1] <= 26){
+            result[i] = 'Senior';
+        } else 
+        {
+            result[i] = 'Open';
+        }
+    }
+        return console.log(result);
+}
+statUS(memberStats);
+// топовое решение с кодварс 
+function openOrSenior(data){
+    return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+  }
+//----
+
+//Сумма чисел от 1 до введенного числа
+function numToSum (num) {
+result = 0;
+    for (let i = 1; i <= num; i++) {
+    result += i;
+}
+return result;
+}
+console.log(numToSum(8));
+
+//Ошибки печати на коробках на производсве
+function printer_error(str) {
+str = str.split('').sort();
+rightColor = 'abcdefghijklm';
+rightColor = rightColor.split('').sort();
+//console.log(rightColor, str);
+let result = str.length;
+for (let j = 0; j < str.length; j++) { 
+    for (let i = 0; i < rightColor.length; i++) {
+        //console.log(`str[${j}] работает с rightColor[${i}] `);
+        //console.log(`j[${j}] = ${str[j]}; i[${i}] = ${rightColor[i]}`);
+        if (str[j] == rightColor[i]) {
+            //console.log('RIGHT COLOR')
+            result -= 1;
+            break;
+        }
+    }
+}
+return console.log(`Ошибок ${result}/${str.length}`);
+}
+printer_error('aaabbbbhaijjjm');
+
+//находим следующий ИДЕАЛЬНЫЙ квадрат
+function findNextSquare(num){
+    if (Number.isInteger(Math.sqrt(num)) == false){
+        return -1;
+    } else {
+        num++;
+        while (Number.isInteger(Math.sqrt(num)) == false) {
+        num++
+        }
+    }
+    return num;
+}
+console.log(findNextSquare(121));
