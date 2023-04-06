@@ -230,3 +230,42 @@ function findNextSquare(num){
     return num;
 }
 console.log(findNextSquare(121));
+
+//Расчет прироста населения
+function nb_year(a,b,c,d) {
+    
+}
+
+//some leetcode
+let arr = [3,2,3];
+function twoSum(nums,target) {
+    let result =[];
+    for (let i = 0; i < nums.length; i++){
+        for (let j = 0; j < nums.length; j++){
+            if (i==j){
+                continue;
+            } else if((nums[i] + nums[j]) == target){
+                result[0] = i;
+                result[1] = j;
+                break;
+            } else {console.log('error');}
+            
+        }
+    }
+    return result;
+}
+console.log(twoSum(arr,6));
+
+//some leetcode
+function addTwoNumbers(l1, l2){
+    l1 = l1.reverse().join('');
+    l2 = l2.reverse().join('');
+    let a = +l1;
+    let b = +l2;
+    let sum = a+b;
+    sum += ''; 
+    sum = sum.split('');
+    return  sum.reverse();
+
+}
+console.log(addTwoNumbers([2,4,3],[5,6,4])); //работает, но на литкод таких методов не существует
