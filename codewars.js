@@ -232,9 +232,13 @@ function findNextSquare(num){
 console.log(findNextSquare(121));
 
 //Расчет прироста населения
-function nb_year(a,b,c,d) {
-    
+function nb_year(pFirst,pPersent,pYear,/*pResult*/) {
+    let result = 0;
+    pPersent = pFirst / 100 * pPersent;
+    result = pFirst + pFirst * pPersent + pYear;
+    return result;
 }
+console.log(nb_year(1000,2,50));
 
 //some leetcode
 let arr = [3,2,3];
