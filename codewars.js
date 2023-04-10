@@ -232,13 +232,28 @@ function findNextSquare(num){
 console.log(findNextSquare(121));
 
 //Расчет прироста населения
-function nb_year(pFirst,pPersent,pYear,/*pResult*/) {
-    let result = 0;
-    pPersent = pFirst / 100 * pPersent;
-    result = pFirst + pFirst * pPersent + pYear;
-    return result;
+function nbYear(pFirst,pPersent,pYear,pResult) {
+    let persent = 0;
+    let num = 0;
+    console.log(pFirst,pPersent,pYear,pResult);
+  if (pPersent == 0) {
+    do {      
+        console.log(pFirst = pFirst + pYear);
+        console.log(num++);
+    } while (pFirst <= pResult);
+    return num-1;
+    } else {
+    do {
+        persent = pFirst / 100 * pPersent;
+        Math.trunc(pFirst = pFirst + persent + pYear);
+        num++;
+    } while (pFirst <= pResult+1);
+    return num;
+    }
 }
-console.log(nb_year(1000,2,50));
+console.log(nbYear(1000,2,50,1214));
+//костыльный мусор, отсутствие логики, понимания, блять, мозгов
+//кое-как оно работает, но выглядит максимально ненадежно
 
 //some leetcode
 let arr = [3,2,3];
@@ -273,3 +288,79 @@ function addTwoNumbers(l1, l2){
 
 }
 console.log(addTwoNumbers([2,4,3],[5,6,4])); //работает, но на литкод таких методов не существует
+
+// определяем играеет ли чел на бонго по букве R or r в начале его имени. Sounds easy enough
+function bongo(name){
+    // let result = '';
+    arr = name.toUpperCase().split('');
+    return result = (arr[0]== 'R') ? `${name} plays banjo`: `${name} does not play banjo`;
+}
+console.log(bongo('robot'));
+
+//считаем количество тру в массиве. Sounds easy enough
+function ezpz(someArray){
+let result = 0;
+    for (i = 0; i<=someArray.length; i++){
+        if (someArray[i] == true){
+            result++;
+        } else continue;
+}
+return result;
+}
+console.log(ezpz([true, true, false, true, false]));
+
+//кал
+function digitize(n) {
+    n = '' + n;
+    n = n.split('').reverse();
+    for (let i = 0; i < n.length; i++){
+        n[i] = parseInt(n[i]);
+   }
+    return n;
+  }
+console.log(digitize(321));
+
+//кал2
+function kal2 (n,x){
+    let a = 0;
+    arr = [];
+    for(i = 0; i < x; i++) {
+        a += n;
+        arr[i] = a;
+    }
+    return arr;
+}
+console.log(kal2(2, 10));
+
+//сумма массива и чет-нечет
+function odd_even (arr) {
+    let arrSum = 0;
+    arr.forEach(a => {
+        arrSum += a;
+    })
+    return result = ((arrSum % 2) == 0) ? 'even': 'odd';
+}
+console.log(odd_even([0, -1, -5]));
+
+//считаем овец. ez but kata points is kata points
+function sheepCounterStrike_1_6 (num) {
+    let arr = '';
+    for (let i = 1; i <= num; i++){
+        arr += `${i} sheep...`;
+    }
+    return arr;
+}
+console.log(sheepCounterStrike_1_6(3));
+
+//отфильтровываем стринг, оставляем намбер в массиве
+function yeas(arr){
+    for(i=0; i < arr.length; i++){
+        if (typeof(arr[i]) == 'string'){
+            arr.splice(i,1);
+            i--
+        }
+   } 
+   
+    return arr;
+}
+console.log(yeas([1,2,"aasf","1","123",123])); //мда, конечно, решения кибератлетов с кодварс в пол строки, норм так бьет по желанию продолжать
