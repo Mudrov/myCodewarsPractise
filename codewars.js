@@ -364,3 +364,56 @@ function yeas(arr){
     return arr;
 }
 console.log(yeas([1,2,"aasf","1","123",123])); //мда, конечно, решения кибератлетов с кодварс в пол строки, норм так бьет по желанию продолжать
+
+//считает гласные (кроме y) в строке
+function abudabamjuneba (arr){
+    let counter = 0;
+    let eq = ['a', 'e', 'i', 'o', 'u'];
+    for (let i = 0; i < arr.length; i++){
+        for (let j = 0; j < eq.length; j++){
+            if (arr[i] == eq[j]){
+                counter++;
+            }
+        }
+   }
+   return counter;
+}
+console.log(abudabamjuneba('Clowne'));
+
+//возвращает true, если количество оо и хх в введенной строке совпадает.
+function xo(str){
+    str = str.toLowerCase();
+    let xCounter = 0;
+    let oCounter = 0;
+    for (i = 0; i < str.length; i++){
+        if (str[i] == 'x'){
+            xCounter++;
+        } else if (str[i] == 'o'){
+            oCounter++;
+        }
+    }
+    return xCounter == oCounter;
+}
+console.log(xo('xxofdfdo'))
+
+//ок, поросячий язык, lets try it
+function pigLang (str) {
+    let vowel = 'aeiou';
+    vowel = vowel.split('');
+    // str = str.split('');
+    for (let i = 0; i < str.length; i++) {
+            if (str[0] == vowel[i]){
+                return str + 'way';
+            } else if (str[0] != vowel[i]){
+                for (let j = 0; j < vowel.length; j++){
+                    do {
+                        str = str.slice(i+1) +str[i];
+                    } while (str[i] != vowel[j]);
+                    return str + 'ay';
+                }
+            }
+        
+    }
+    // return result;
+}
+console.log(pigLang('tsaha'));
