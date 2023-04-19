@@ -66,4 +66,74 @@ function intSum (a,b){
     }
     return result;
 }
-console.log(intSum(-1,2));
+console.log(intSum(2,2));
+
+//max min array 
+function max_min (arrInt){
+let max = Math.max(...arrInt);
+let min = Math.min(...arrInt);
+let result = `max = ${max} min = ${min} `;
+return result;
+}
+console.log(max_min([4,6,2,566,9,63,-134,1]));
+
+//alphabet position
+function alphabetNum (str) {
+    console.log(str[str.length-1]);
+    let result = '';
+    str = str.toLowerCase();
+    const alphabet = {
+        'a': 1,
+        'b': 2,
+        'c': 3,
+        'd': 4,
+        'e': 5,
+        'f': 6,
+        'g': 7,
+        'h': 8,
+        'i': 9,
+        'j': 10,
+        'k': 11,
+        'l': 12,
+        'm': 13,
+        'n': 14,
+        'o': 15,
+        'p': 16,
+        'q': 17,
+        'r': 18,
+        's': 19,
+        't': 20,
+        'u': 21,
+        'v': 22,
+        'w': 23,
+        'x': 24,
+        'y': 25,
+        'z': 26
+    }
+for (let i = 0; i < str.length; i++){
+    for(let key in alphabet){
+        if (str[i] == key){
+            result += ' ' + alphabet[key];
+        } else continue;
+    }
+}
+return result = result.slice(1);
+}
+console.log(alphabetNum("The sunset sets at twelve o' clock"));
+
+//сравниваем две последние две буквы строки, если они совпадают со вторым аргументом - возвращаем тру
+function twoLetters (str, strEnd) {
+// let result = str[str.length - 3] + str[str.length - 2] + str[str.length - 1];
+// if (result == strEnd){
+//     return true;
+// } else {
+//     return false
+// }
+let result = '';
+for (i = 1; i <= strEnd.length; i++){
+    result += str[str.length - i];
+}
+result = result.split().reverse();
+return result;
+}
+console.log(twoLetters('abcde', 'cde'));

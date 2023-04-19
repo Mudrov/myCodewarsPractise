@@ -396,24 +396,3 @@ function xo(str){
 }
 console.log(xo('xxofdfdo'))
 
-//ок, поросячий язык, lets try it
-function pigLang (str) {
-    let vowel = 'aeiou';
-    vowel = vowel.split('');
-    // str = str.split('');
-    for (let i = 0; i < str.length; i++) {
-            if (str[0] == vowel[i]){
-                return str + 'way';
-            } else if (str[0] != vowel[i]){
-                for (let j = 0; j < vowel.length; j++){
-                    do {
-                        str = str.slice(i+1) +str[i];
-                    } while (str[i] != vowel[j]);
-                    return str + 'ay';
-                }
-            }
-        
-    }
-    // return result;
-}
-console.log(pigLang('tsaha'));
