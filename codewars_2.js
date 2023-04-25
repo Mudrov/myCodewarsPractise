@@ -123,17 +123,103 @@ console.log(alphabetNum("The sunset sets at twelve o' clock"));
 
 //сравниваем две последние две буквы строки, если они совпадают со вторым аргументом - возвращаем тру
 function twoLetters (str, strEnd) {
-// let result = str[str.length - 3] + str[str.length - 2] + str[str.length - 1];
-// if (result == strEnd){
-//     return true;
-// } else {
-//     return false
-// }
 let result = '';
 for (i = 1; i <= strEnd.length; i++){
     result += str[str.length - i];
 }
-result = result.split().reverse();
-return result;
+result = result.split('').reverse().join('');
+if (result == strEnd){
+    return true;
+} else {
+    return false
 }
-console.log(twoLetters('abcde', 'cde'));
+}
+console.log(twoLetters('abcsde', 'cde')); //работает, бат.. решается она в одну строку методом str.endWith(strEnd)....
+
+//Фибоначчи Трибоначчи (как Фибоначчи, только следующее число является суммой трех чисел)
+function tribonacci(signature,n){
+    let resultArr = signature;
+    let result = 0;
+    for (i = 0; i < n; i++) {
+        // result = signature[i]+signature[i+1]+signature[i+2];
+        result = resultArr[i]+resultArr[i+1]+resultArr[i+2]
+        resultArr[i+3] = result;
+    }
+    resultArr.splice(n, 3);
+    return resultArr;
+  }
+  console.log(tribonacci([1,1,1], 0));
+
+//Разделение слов по камэл кейс
+function cCase (str) {
+str = str.split('');
+for (i = 0; i < str.length; i++){
+    if (str[i] != str[i].toLowerCase()) {
+        str[i-1] += ' ';
+    }
+}
+str = str.join('');
+return str;
+}
+console.log(cCase('camelCasingTest'));
+
+//количество умножения, пока не получим одинарное число
+function persistence(num) {
+    let count = 0;
+    while (num > 9) {
+      let result = 1;
+      while (num > 0) {
+        result *= num % 10;
+        num = Math.floor(num / 10);
+      }
+      num = result;
+      count++;
+    }
+    return count;
+  }
+console.log(persistence(999));
+
+//Функция миллисекунд с полуночи
+function timeB (hour, minute, second){
+hour = hour*3600000;
+minute = minute * 60000;
+second = second *1000;
+return hour+minute+second;
+}
+console.log(timeB(0,1,1));
+
+//тру, если строка содержит валью
+function isEq (arr, x) {
+    let result = false
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] == x) {
+            result = true;
+        }
+    }
+    return result;
+}
+console.log(isEq('sraka', 'b'));
+
+//на входе строка, на выходе масив по пробелам, изи, 8 kyu хуль
+function eZ (arr) {
+return arr.split(' ');
+}
+console.log(eZ('I love arrays they are my favorite'));
+
+// another 8 kyu (они в обратную сторону по сложности идут?) Проверак на тру и фолс, ретерн да или нет
+function boolToWord( bool ){
+    return bool === true ? 'Yes' : 'No'
+}
+
+//8 kyu, пох, набиваю руку для кода в одну строчку, эм ай райт?
+
+function sum (numbers) {
+    "use strict";
+    let result = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      result += numbers[i];
+    }
+    return result;
+};
+
+console.log(sum([1, 5.2, 4, 0, -1]));
