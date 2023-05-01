@@ -223,3 +223,49 @@ function sum (numbers) {
 };
 
 console.log(sum([1, 5.2, 4, 0, -1]));
+
+//все слова начинаются с заглавной
+function toJadenCase (str) {
+    str = str.split('');
+    for (let i = 0; i < str.length; i++){
+        if (str[i] == ' '){
+        //    str = str.replace(str[i+1], str[i+1].toUpperCase());
+        str[i+1] = str[i+1].toUpperCase();
+        }
+    }
+    return str.join('');
+}
+console.log(toJadenCase('How can mirrors be real if our eyes arent real'));
+
+//счетчик +1, если хоть один символ повторяется
+function duplicateCount(text) {
+    text = text.toLowerCase();
+    let duplicateCheck = {};
+    let counter = 0;
+    for (let i = 0; i < text.length; i++) {
+        if (!duplicateCheck[text[i]]){
+            duplicateCheck[text[i]] = 1;
+        }
+        else if (duplicateCheck[text[i]] < 2) {
+            duplicateCheck[text[i]] += 1;
+            counter++;
+        }
+    }
+    return counter;
+}
+console.log(duplicateCount('aabbcde'));
+
+//возвращаем массив из заданной строки, если символы повторяются, 
+//выводим только один до следующего повторения, 6 kyu, хз почему, даже я справился за 5 минут
+function dup (str){ 
+    result = [];
+      for (let i = 0; i < str.length; i++){
+          if (str[i] == str[i-1]){
+              continue;
+          } else {
+              result.push(str[i]);
+          }
+      }
+      return result;
+}
+console.log(dup('AAAABBBCCDAABBB'));
