@@ -269,3 +269,26 @@ function dup (str){
       return result;
 }
 console.log(dup('AAAABBBCCDAABBB'));
+
+//удаляем из массива а все значения, которые есть в массиве б, возвращаем новый массив сохранив порядок
+function arrayDiff(a, b) {
+    let result = [];
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {  
+          if (a[i] != b[j]) {
+                continue;
+            } else if (a[i] == b[j]){
+                delete a[i];
+            }
+        }
+    }
+    for (i = 0; i < a.length; i++) {
+        if (a[i] == undefined) {
+            continue;
+        } else {
+            result.push(a[i]);
+        }
+    }
+return result;
+}
+console.log(arrayDiff([1,2,3],[1,2]));
