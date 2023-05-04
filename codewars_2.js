@@ -292,3 +292,39 @@ function arrayDiff(a, b) {
 return result;
 }
 console.log(arrayDiff([1,2,3],[1,2]));
+
+//pangram
+
+function isPangram(str){
+let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  console.log(str);  
+  str = str.toLowerCase().split('').sort();
+    hubStr = '';
+  console.log(str);
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == undefined || str[i] == ',' || str[i] == '.'|| str[i] == ' ') {
+            continue;
+        } else {
+            hubStr += str[i];
+            console.log(hubStr);
+        }
+    }
+    hubStr = hubStr.replace(/[0-9]/g, '');
+    let result ='';
+    for (let i = 0; i < str.length; i++){
+        if (hubStr[i] == hubStr[i-1] || hubStr[i] == undefined){
+            continue;
+        } else {
+            result += hubStr[i];
+            console.log(result);
+        }
+    }
+    // result = result.substring(1);
+    console.log(result);
+    for (let i = 0; i < alphabet.length; i++) {
+        console.log(`${result[i]} = ${alphabet[i]}`, result[i] == alphabet[i]);
+    }
+return result == alphabet;
+}
+console.log(isPangram('The quick brown fox jumps over the lazy dog'));
