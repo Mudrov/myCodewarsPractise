@@ -294,7 +294,6 @@ return result;
 console.log(arrayDiff([1,2,3],[1,2]));
 
 //pangram
-
 function isPangram(str){
 let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   console.log(str);  
@@ -328,3 +327,41 @@ let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 return result == alphabet;
 }
 console.log(isPangram('The quick brown fox jumps over the lazy dog'));
+
+//some math
+function hz (num) {
+    let result = 0;
+    subNum = 4;
+    hubNum = 0;
+    if (num == 1 || num == 0) {
+        result = num + '.00'
+    } else {
+        for (let i = 0; i < num-1; i++){
+            hubNum += (1/subNum);
+            subNum += 3;
+        }
+        result = 1 + hubNum;
+        result = result.toFixed(2)+'';
+    }
+    return result;
+}
+console.log(typeof(hz(2)));
+// let num = 1.56978021978022;
+// console.log(num.toFixed(2));
+
+//max min 7 kuy
+function minMax(arr){
+    let result = [];
+    result[0] = Math.min(...arr);
+    result[1] = Math.max(...arr);
+    return result;
+  }
+  console.log(minMax([1])); //мда
+
+//average grade
+function getGrade (s1, s2, s3) {
+    let averageGrade = (s1 + s2 + s3)/3;
+    let result = '';
+
+}
+console.log(getGrade(89,70,90));
