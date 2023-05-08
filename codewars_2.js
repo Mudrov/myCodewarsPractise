@@ -328,3 +328,59 @@ let alphabet = 'abcdefghijklmnopqrstuvwxyz';
 return result == alphabet;
 }
 console.log(isPangram('The quick brown fox jumps over the lazy dog'));
+
+//bus people
+function bus (busStops) {
+    let result = 0;
+    for (let i = 0; i < busStops.length; i++){
+        result += busStops[i][0] - busStops[i][1];
+    }
+    return result;
+}
+console.log(bus([[10,0],[3,5],[5,8]]));
+
+//превод человеческих лет на кэт и дог йерс
+function humanCatDog (humanYears){
+    let resultArr = [humanYears,15,15];
+    if (humanYears > 1) {
+            resultArr[1] += 9;
+            resultArr[2] += 9;
+
+    }
+    if (humanYears >= 2) {
+        for (let i = 2; i < humanYears; i++) {
+            resultArr[1] += 4;
+            resultArr[2] += 5;
+        }
+    }
+    return resultArr;
+}
+console.log(humanCatDog(10));
+
+//letter counter
+function count(string) {
+    let letters = {};
+    for (let i = 0; i < string.length; i++) {
+            letters[string[i]] = 0;
+    }
+    for (let i = 0; i < string.length; i++) {
+        letters[string[i]] += 1;
+    }
+    return letters;
+}
+console.log(duplicateCount('aabbcde'));
+
+//allowed pin 
+function atmPin (pin) {
+    if (pin.length === 4 || pin.length === 6) {
+        for (let i = 0; i < pin.length; i++) { 
+          if (isNaN(parseInt(pin[i]))) { 
+            return false; 
+          }
+        }
+        return true; 
+      } else {
+        return false; 
+      }
+}
+console.log(atmPin('123456')); 
