@@ -384,3 +384,90 @@ function atmPin (pin) {
       }
 }
 console.log(atmPin('123456')); 
+
+//is my points better
+function betterThanAverage(classPoints, yourPoints) {
+    let averagePoins = 0;
+    for (i = 0; i < classPoints.length; i++) {
+        averagePoins += classPoints[i];
+    }
+    let result = averagePoins/classPoints.length;
+    return (yourPoints >= result) ? true : false;
+  }
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+  
+//clac
+function basicOp(operation, value1, value2)
+{
+    return (operation == '+') ? value1+value2 : (operation == '-') ? value1-value2 : (operation == '*') ? value1*value2 : (operation == '/') ? value1/value2 : false;
+}
+console.log(basicOp('/',5, 5));
+
+//sum without max and min
+function sumArray(array) {
+    if (array == NaN || array == null) {
+        return 0;
+    }
+
+    array.sort(function(a, b) {
+        return a - b;
+      });
+
+        array.pop();
+        array.shift();
+
+    let result = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == undefined) {
+            continue;
+        } else {
+            result += array[i];
+        }
+    }
+    return result;
+}
+console.log(sumArray([ 6, 2, 1, 8, 10 ]));
+
+//prime numbers
+// function primeFactors(n) {
+// 	function isPrime(num) {
+//         for (let i = 2; i < num; i++) {
+//             if (num % i === 0){
+//                 return false;
+//             }
+//         }
+//     return true;
+//     }
+//     let result = [];
+//     for (let i = 2; i < n; i++) {
+//         if (n % i === 0 && isPrime(i)){
+//             result.push(i);
+//         }
+//     }
+//     return result;
+// }
+// console.log(primeFactors(8)); hz
+
+//найти число которе встречается нечетное количество раз в массиве
+function findOdd(A) {
+    let numberCounter = {};
+    for (let i = 0; i < A.length; i++) {
+      numberCounter[A[i]] = 0;
+    }
+    for (let j = 0; j < A.length; j++) {
+      numberCounter[A[j]] += 1;
+    }
+    const keys = Object.keys(numberCounter);
+    let result = null;
+    for (let k = 0; k < keys.length; k++) {
+      numberCounter[keys[k]] = Number(numberCounter[keys[k]]);
+      if ((numberCounter[keys[k]] % 2) != 0) {
+        result = keys[k];
+      } else {
+        continue;
+      }
+    }
+    return Number(result);
+  }
+  console.log(findOdd([0,1,0,1,0])); //да, люди эту задачу решают в одну строчку...
