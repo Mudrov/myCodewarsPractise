@@ -328,6 +328,7 @@ return result == alphabet;
 }
 console.log(isPangram('The quick brown fox jumps over the lazy dog'));
 
+<<<<<<< HEAD
 //some math
 function hz (num) {
     let result = 0;
@@ -365,3 +366,164 @@ function getGrade (s1, s2, s3) {
 
 }
 console.log(getGrade(89,70,90));
+=======
+//bus people
+function bus (busStops) {
+    let result = 0;
+    for (let i = 0; i < busStops.length; i++){
+        result += busStops[i][0] - busStops[i][1];
+    }
+    return result;
+}
+console.log(bus([[10,0],[3,5],[5,8]]));
+
+//превод человеческих лет на кэт и дог йерс
+function humanCatDog (humanYears){
+    let resultArr = [humanYears,15,15];
+    if (humanYears > 1) {
+            resultArr[1] += 9;
+            resultArr[2] += 9;
+
+    }
+    if (humanYears >= 2) {
+        for (let i = 2; i < humanYears; i++) {
+            resultArr[1] += 4;
+            resultArr[2] += 5;
+        }
+    }
+    return resultArr;
+}
+console.log(humanCatDog(10));
+
+//letter counter
+function count(string) {
+    let letters = {};
+    for (let i = 0; i < string.length; i++) {
+            letters[string[i]] = 0;
+    }
+    for (let i = 0; i < string.length; i++) {
+        letters[string[i]] += 1;
+    }
+    return letters;
+}
+console.log(duplicateCount('aabbcde'));
+
+//allowed pin 
+function atmPin (pin) {
+    if (pin.length === 4 || pin.length === 6) {
+        for (let i = 0; i < pin.length; i++) { 
+          if (isNaN(parseInt(pin[i]))) { 
+            return false; 
+          }
+        }
+        return true; 
+      } else {
+        return false; 
+      }
+}
+console.log(atmPin('123456')); 
+
+//is my points better
+function betterThanAverage(classPoints, yourPoints) {
+    let averagePoins = 0;
+    for (i = 0; i < classPoints.length; i++) {
+        averagePoins += classPoints[i];
+    }
+    let result = averagePoins/classPoints.length;
+    return (yourPoints >= result) ? true : false;
+  }
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+  
+//clac
+function basicOp(operation, value1, value2)
+{
+    return (operation == '+') ? value1+value2 : (operation == '-') ? value1-value2 : (operation == '*') ? value1*value2 : (operation == '/') ? value1/value2 : false;
+}
+console.log(basicOp('/',5, 5));
+
+//sum without max and min
+function sumArray(array) {
+    if (array == NaN || array == null) {
+        return 0;
+    }
+
+    array.sort(function(a, b) {
+        return a - b;
+      });
+
+        array.pop();
+        array.shift();
+
+    let result = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] == undefined) {
+            continue;
+        } else {
+            result += array[i];
+        }
+    }
+    return result;
+}
+console.log(sumArray([ 6, 2, 1, 8, 10 ]));
+
+//prime numbers
+// function primeFactors(n) {
+// 	function isPrime(num) {
+//         for (let i = 2; i < num; i++) {
+//             if (num % i === 0){
+//                 return false;
+//             }
+//         }
+//     return true;
+//     }
+//     let result = [];
+//     for (let i = 2; i < n; i++) {
+//         if (n % i === 0 && isPrime(i)){
+//             result.push(i);
+//         }
+//     }
+//     return result;
+// }
+// console.log(primeFactors(8)); hz
+
+//найти число которе встречается нечетное количество раз в массиве
+function findOdd(A) {
+    let numberCounter = {};
+    for (let i = 0; i < A.length; i++) {
+      numberCounter[A[i]] = 0;
+    }
+    for (let j = 0; j < A.length; j++) {
+      numberCounter[A[j]] += 1;
+    }
+    const keys = Object.keys(numberCounter);
+    let result = null;
+    for (let k = 0; k < keys.length; k++) {
+      numberCounter[keys[k]] = Number(numberCounter[keys[k]]);
+      if ((numberCounter[keys[k]] % 2) != 0) {
+        result = keys[k];
+      } else {
+        continue;
+      }
+    }
+    return Number(result);
+  }
+  console.log(findOdd([0,1,0,1,0])); //да, люди эту задачу решают в одну строчку...
+
+  //rot13
+// function rot13(message){
+// }
+// console.log(rot13('test'));
+
+//return middle of the string
+function getMiddle(s)
+{
+    if (s.length == 1){
+        return s;
+    } else if ((s.length%2) == 0) {
+        return s[(s.length/2) -1] + s[(s.length/2)];
+    } else if ((s.length%2) != 0) {
+        return s[(Math.round(s.length/2)) -1];
+    }
+}
+console.log(getMiddle('testing'));
