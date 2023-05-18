@@ -328,7 +328,6 @@ return result == alphabet;
 }
 console.log(isPangram('The quick brown fox jumps over the lazy dog'));
 
-<<<<<<< HEAD
 //some math
 function hz (num) {
     let result = 0;
@@ -366,7 +365,7 @@ function getGrade (s1, s2, s3) {
 
 }
 console.log(getGrade(89,70,90));
-=======
+
 //bus people
 function bus (busStops) {
     let result = 0;
@@ -570,4 +569,43 @@ function countPositivesSumNegatives(input) {
         return lng.english;
     }
 }
-console.log(greet('dutchdsdsd'));
+console.log(greet('dutch'));
+
+//hz
+function findShort(s){
+  s = s.split(' ');
+  let hub = s[0];
+  for (let i = 0; i < s.length; i++){
+    if (s[i].length < hub.length){
+        hub = s[i];
+    } else {
+        continue;
+    }
+  }
+  return hub.length;
+}
+console.log(findShort('bitcoin take over the world maybe who knows perhaps'));
+
+//hz
+function getDivisorsCnt(n){
+    let counter = 0;
+    for (let i = 0; i <= n; i++){
+        counter = ((n % i) == 0) ? counter+1 : counter+0;
+    }
+    return counter;
+}
+console.log(getDivisorsCnt(54));
+
+//bicode
+function addBinary(a,b) {
+    let sum = a+b,
+        hub = 0;
+        result = '';
+    do {
+        hub = sum%2;
+        sum = Math.floor(sum/2);
+        result += hub;
+    } while (sum > 0);
+return result;
+}
+console.log(addBinary(5,9));
